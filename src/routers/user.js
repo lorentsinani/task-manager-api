@@ -1,14 +1,10 @@
 const express = require("express");
-const router = new express.Router();
 const User = require("../models/user");
 const auth = require("../middleware/auth");
 const multer = require("multer");
 const sharp = require("sharp");
 const { sendWelcomeEmail, sendCancelationEmail } = require("../emails/account");
-
-router.get("/test", (req, res) => {
-  res.send("From a new file");
-});
+const router = new express.Router();
 
 router.post("/users", async (req, res) => {
   const user = new User(req.body);
